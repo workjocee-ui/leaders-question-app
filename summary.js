@@ -65,19 +65,12 @@ function renderCards(summaryData) {
     text.textContent = `${count} question${count === 1 ? "" : "s"}`;
     text.className = "empty-card";
 
-    const button = document.createElement("button");
-    button.className = "summary-action-button";
-    button.textContent = `View ${leader.name}`;
-    button.addEventListener("click", () => {
-      if (activeSummaryCard) {
-        activeSummaryCard.classList.remove("active");
-      }
-      card.classList.add("active");
-      activeSummaryCard = card;
-      showLeaderQuestions(leader, summaryData[leader.id] || []);
-    });
+    const link = document.createElement("a");
+    link.className = "summary-action-button";
+    link.href = `index.html?leaderId=${leader.id}`;
+    link.textContent = `View ${leader.name}`;
 
-    card.append(img, text, button);
+    card.append(img, text, link);
     summaryContainer.appendChild(card);
   });
 }

@@ -61,6 +61,18 @@ const questionInput = document.getElementById("question-input");
 const addBtn = document.getElementById("add-question-btn");
 const limitMsg = document.getElementById("question-limit-msg");
 
+// Check for URL parameter to select a leader
+const urlParams = new URLSearchParams(window.location.search);
+const leaderIdParam = urlParams.get('leaderId');
+let autoSelect = false;
+if (leaderIdParam) {
+  const leader = leaders.find(l => l.id == parseInt(leaderIdParam));
+  if (leader) {
+    autoSelect = true;
+    // Will select after creating cards
+  }
+}
+
 function createLeaderCards() {
   leaders.forEach(leader => {
     const card = document.createElement("div");
@@ -145,8 +157,16 @@ addBtn.addEventListener("click", async () => {
 
 createLeaderCards();
 
-const firstCard = leadersContainer.querySelector(".leader-card");
-if (firstCard) {
-  selectLeader(leaders[0], firstCard);
+if (autoSelect) {
+  const leader = leaders.find(l => l.id == parseInt(leaderIdParam));
+  const card = document.querySelector(`[data-leader-id="${leader.id}"]`);
+  if (card) {
+    selectLeader(leader, card);
+  }
+} else {
+  const firstCard = leadersContainer.querySelector(".leader-card");
+  if (firstCard) {
+    selectLeader(leaders[0], firstCard);
+  }
 }
 

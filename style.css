@@ -113,6 +113,11 @@ h2 {
   transform: translateY(-1px);
 }
 
+a.summary-action-button {
+  text-decoration: none;
+  display: block;
+}
+
 main,
 section {
   width: min(1200px, calc(100% - 40px));
