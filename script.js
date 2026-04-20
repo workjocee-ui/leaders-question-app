@@ -174,10 +174,6 @@ if (autoSelect) {
   if (card) {
     selectLeader(leader, card);
   }
-} else {
-  const firstCard = leadersContainer.querySelector(".leader-card");
-  if (firstCard) {
-    selectLeader(leaders[0], firstCard);
-  }
 }
+// Removed auto-selection of first leader
 
