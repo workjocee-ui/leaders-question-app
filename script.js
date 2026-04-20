@@ -144,3 +144,9 @@ addBtn.addEventListener("click", async () => {
 });
 
 createLeaderCards();
+
+const firstCard = leadersContainer.querySelector(".leader-card");
+if (firstCard) {
+  selectLeader(leaders[0], firstCard);
+}
+

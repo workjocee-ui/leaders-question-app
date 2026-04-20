@@ -144,6 +144,8 @@ section {
   display: grid;
   gap: 1rem;
   text-align: center;
+  align-items: center;
+  min-height: 320px;
 }
 
 .leader-card img,
