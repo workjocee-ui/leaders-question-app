@@ -109,6 +109,9 @@ function selectLeader(leader, card) {
   leaderImageEl.src = leaderImages[leader.id];
   leaderImageEl.style.display = "block";
 
+  // Scroll to the selected panel
+  document.getElementById("selected-panel").scrollIntoView({ behavior: 'smooth' });
+
   if (currentSnapshotUnsubscribe) {
     currentSnapshotUnsubscribe();
     currentSnapshotUnsubscribe = null;
@@ -132,9 +135,6 @@ function selectLeader(leader, card) {
       questionsContainer.appendChild(li);
     });
   });
-
-  // Scroll to the selected panel
-  document.getElementById("selected-panel").scrollIntoView({ behavior: 'smooth' });
 }
 
 addBtn.addEventListener("click", async () => {
