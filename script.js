@@ -119,6 +119,7 @@ function selectLeader(leader, card) {
 
   const q = query(collection(db, "questions"), where("leaderId", "==", currentLeaderId));
   currentSnapshotUnsubscribe = onSnapshot(q, snapshot => {
+    console.log("Snapshot received, docs count:", snapshot.size);
     questionsContainer.innerHTML = "";
 
     if (snapshot.empty) {
@@ -134,6 +135,8 @@ function selectLeader(leader, card) {
       li.textContent = doc.data().text;
       questionsContainer.appendChild(li);
     });
+  }, error => {
+    console.error("Snapshot error:", error);
   });
 }
 
@@ -149,13 +152,18 @@ addBtn.addEventListener("click", async () => {
     return;
   }
 
-  await addDoc(collection(db, "questions"), {
-    leaderId: currentLeaderId,
-    text
-  });
-
-  questionInput.value = "";
-  limitMsg.textContent = "";
+  try {
+    await addDoc(collection(db, "questions"), {
+      leaderId: currentLeaderId,
+      text
+    });
+    console.log("Question added successfully");
+    questionInput.value = "";
+    limitMsg.textContent = "";
+  } catch (error) {
+    console.error("Error adding question:", error);
+    limitMsg.textContent = "Failed to add question. Check console for details.";
+  }
 });
 
 createLeaderCards();
