@@ -1,43 +1,52 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Leader Questions App</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Corporate Leader Questions</p>
+      <h1>Ask a Leader a Question</h1>
+      <p class="subtitle">Choose a leader below. Each card shows the leader's face before you submit a question.</p>
+    </div>
+    <a class="secondary-button" href="summary.html">View Summary</a>
+  </header>
 
-  <!-- Navigation -->
-  <a href="summary.html">View Summary</a>
+  <section class="grid-section">
+    <div class="section-header">
+      <h2>Leader Directory</h2>
+      <p>Select a leader to view their profile and add a question.</p>
+    </div>
+    <div id="leaders-container" class="leader-grid"></div>
+  </section>
 
-  <h1>Select a Leader</h1>
+  <section class="selected-panel">
+    <div class="selected-header">
+      <div>
+        <h2 id="selected-leader">Select a leader</h2>
+        <p id="selected-description">Click on a leader card above to display their image, profile, and question input.</p>
+      </div>
+    </div>
 
-  <div id="leaders-container"></div>
+    <div class="profile-card">
+      <img id="leader-image" alt="Leader image" class="leader-profile-image" style="display:none;">
+      <div class="profile-copy">
+        <div id="question-input-area" class="question-panel" style="display:none;">
+          <div class="input-row">
+            <input id="question-input" placeholder="Type your question">
+            <button id="add-question-btn" class="primary-button">Add Question</button>
+          </div>
+          <p id="question-limit-msg" class="limit-message"></p>
+        </div>
+      </div>
+    </div>
 
-  <hr>
+    <ul id="questions-container" class="questions-list"></ul>
+  </section>
 
-  <h2 id="selected-leader"></h2>
-
-  <!-- ✅ Leader Image (REQUIRED) -->
-  <img
-    id="leader-image"
-    alt="Leader image"
-    style="display:none; width:150px; margin:10px 0; border:1px solid #ccc;"
-  >
-
-  <!-- Question Input -->
-  <div id="question-input-area" style="display:none;">
-    <input id="question-input" placeholder="Type your question">
-    <button id="add-question-btn">Add Question</button>
-    <p id="question-limit-msg"></p>
-  </div>
-
-  <!-- Questions List -->
-  <ul id="questions-container"></ul>
-
-  <!-- IMPORTANT: must be module -->
   <script type="module" src="script.js"></script>
-
 </body>
 </html>

@@ -1,21 +1,38 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Summary</title>
-  style.css
+  <title>Leader Summary</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Leader Summary</p>
+      <h1>Questions by Leader</h1>
+      <p class="subtitle">Browse leader profiles and review the questions submitted for each leader.</p>
+    </div>
+    <a class="secondary-button" href="index.html">Back to Main App</a>
+  </header>
 
-  <h1>Summary Page</h1>
+  <section class="grid-section">
+    <div class="section-header">
+      <h2>Leader Summary Cards</h2>
+      <p>Click a leader button below to show the questions submitted for that leader.</p>
+    </div>
+    <div id="summary-container" class="leader-grid"></div>
+  </section>
 
-  <p>This page summarises questions across leaders.</p>
+  <section id="leader-details" class="selected-panel hidden">
+    <div class="selected-header">
+      <div>
+        <h2 id="summary-selected-title"></h2>
+        <p id="summary-selected-description"></p>
+      </div>
+    </div>
+    <ul id="summary-questions-list" class="questions-list"></ul>
+  </section>
 
-  <div id="summary-container"></div>
-
-  <hr>
-  index.html← Back to Main App</a>
-
-  summary.js
+  <script type="module" src="summary.js"></script>
 </body>
 </html>
