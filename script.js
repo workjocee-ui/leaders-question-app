@@ -31,7 +31,7 @@ const leaders = Array.from({ length: 16 }, (_, i) => ({
   name: `Leader ${i + 1}`
 }));
 
-// ✅ Test images for all 16 leaders
+// ✅ Placeholder images for ALL leaders
 const leaderImages = {
   1: "https://via.placeholder.com/150?text=Leader+1",
   2: "https://via.placeholder.com/150?text=Leader+2",
@@ -71,20 +71,16 @@ leaders.forEach(leader => {
   leadersContainer.appendChild(btn);
 });
 
-// ✅ Select leader & listen for shared questions
+// ✅ Select leader & load shared questions
 function selectLeader(leader) {
   currentLeaderId = leader.id;
   selectedLeader.textContent = `Questions for ${leader.name}`;
   questionInputArea.style.display = "block";
   limitMsg.textContent = "";
 
-  // ✅ Show leader image
-  if (leaderImages[leader.id]) {
-    leaderImageEl.src = leaderImages[leader.id];
-    leaderImageEl.style.display = "block";
-  } else {
-    leaderImageEl.style.display = "none";
-  }
+  // ✅ SHOW IMAGE
+  leaderImageEl.src = leaderImages[leader.id];
+  leaderImageEl.style.display = "block";
 
   const q = query(
     collection(db, "questions"),
