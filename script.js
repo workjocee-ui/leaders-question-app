@@ -132,6 +132,9 @@ function selectLeader(leader, card) {
       questionsContainer.appendChild(li);
     });
   });
+
+  // Scroll to the selected panel
+  document.getElementById("selected-panel").scrollIntoView({ behavior: 'smooth' });
 }
 
 addBtn.addEventListener("click", async () => {
