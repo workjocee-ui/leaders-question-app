@@ -67,7 +67,7 @@ function renderCards(summaryData) {
 
     const link = document.createElement("a");
     link.className = "summary-action-button";
-    link.href = `index.html?leaderId=${leader.id}`;
+    link.href = `index.html`;
     link.textContent = `View ${leader.name}`;
 
     card.append(img, text, link);
