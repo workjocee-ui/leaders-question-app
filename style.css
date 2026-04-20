@@ -140,7 +140,8 @@ section {
   padding: 1.2rem;
 }
 
-.leader-card {
+.leader-card,
+.summary-card {
   display: grid;
   gap: 1rem;
   text-align: center;

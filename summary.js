@@ -47,6 +47,7 @@ const leaderDetails = document.getElementById("leader-details");
 const summaryTitle = document.getElementById("summary-selected-title");
 const summaryDescription = document.getElementById("summary-selected-description");
 const summaryQuestionsList = document.getElementById("summary-questions-list");
+let activeSummaryCard = null;
 
 function renderCards(summaryData) {
   summaryContainer.innerHTML = "";
@@ -67,7 +68,14 @@ function renderCards(summaryData) {
     const button = document.createElement("button");
     button.className = "summary-action-button";
     button.textContent = `View ${leader.name}`;
-    button.addEventListener("click", () => showLeaderQuestions(leader, summaryData[leader.id] || []));
+    button.addEventListener("click", () => {
+      if (activeSummaryCard) {
+        activeSummaryCard.classList.remove("active");
+      }
+      card.classList.add("active");
+      activeSummaryCard = card;
+      showLeaderQuestions(leader, summaryData[leader.id] || []);
+    });
 
     card.append(img, text, button);
     summaryContainer.appendChild(card);
