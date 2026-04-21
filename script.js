@@ -23,10 +23,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const leaders = Array.from({ length: 16 }, (_, i) => ({
-  id: i + 1,
-  name: `Leader ${i + 1}`
-}));
+const leaders = [
+  { id: 1, name: "Christian Lim" },
+  { id: 2, name: "Michelle Tay" },
+  { id: 3, name: "Emisukri Abdul Rahman" },
+  { id: 4, name: "Danny Boey" },
+  { id: 5, name: "Steven Er" },
+  { id: 6, name: "Judy Loh" },
+  { id: 7, name: "Chee Wee Tan" },
+  { id: 8, name: "Francis Tan" },
+  { id: 9, name: "Vince Tan" },
+  { id: 10, name: "Ajith Thadiyil Vidyadharan" },
+  { id: 11, name: "Yung Yeow Wong" },
+  { id: 12, name: "Hong Eng Yap" },
+  { id: 13, name: "Hendra Setiawan" },
+  { id: 14, name: "Ming Wen Yang" },
+  { id: 15, name: "Lawrence Ong" },
+  { id: 16, name: "Shaofeng Zhu" }
+];
 
 const leaderImages = {
   1: "https://via.placeholder.com/300?text=Leader+1",
@@ -60,6 +74,18 @@ const questionInputArea = document.getElementById("question-input-area");
 const questionInput = document.getElementById("question-input");
 const addBtn = document.getElementById("add-question-btn");
 const limitMsg = document.getElementById("question-limit-msg");
+
+// Check for URL parameter to select a leader
+const urlParams = new URLSearchParams(window.location.search);
+const leaderIdParam = urlParams.get('leaderId');
+let autoSelect = false;
+if (leaderIdParam) {
+  const leader = leaders.find(l => l.id == parseInt(leaderIdParam));
+  if (leader) {
+    autoSelect = true;
+    // Will select after creating cards
+  }
+}
 
 function createLeaderCards() {
   leaders.forEach(leader => {
@@ -155,4 +181,12 @@ addBtn.addEventListener("click", async () => {
 });
 
 createLeaderCards();
+
+if (autoSelect) {
+  const leader = leaders.find(l => l.id == parseInt(leaderIdParam));
+  const card = document.querySelector(`[data-leader-id="${leader.id}"]`);
+  if (card) {
+    selectLeader(leader, card);
+  }
+}
 
