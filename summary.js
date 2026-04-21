@@ -38,22 +38,22 @@ const leaders = [
 ];
 
 const leaderImages = {
-  1: "https://via.placeholder.com/300?text=Leader+1",
-  2: "https://via.placeholder.com/300?text=Leader+2",
-  3: "https://via.placeholder.com/300?text=Leader+3",
-  4: "https://via.placeholder.com/300?text=Leader+4",
-  5: "https://via.placeholder.com/300?text=Leader+5",
-  6: "https://via.placeholder.com/300?text=Leader+6",
-  7: "https://via.placeholder.com/300?text=Leader+7",
-  8: "https://via.placeholder.com/300?text=Leader+8",
-  9: "https://via.placeholder.com/300?text=Leader+9",
-  10: "https://via.placeholder.com/300?text=Leader+10",
-  11: "https://via.placeholder.com/300?text=Leader+11",
-  12: "https://via.placeholder.com/300?text=Leader+12",
-  13: "https://via.placeholder.com/300?text=Leader+13",
-  14: "https://via.placeholder.com/300?text=Leader+14",
-  15: "https://via.placeholder.com/300?text=Leader+15",
-  16: "https://via.placeholder.com/300?text=Leader+16"
+  1: "Images for Leaders/Christian Lim.jpg",
+  2: "Images for Leaders/Michelle Tay.jpg",
+  3: "Images for Leaders/Emisukri Abdul Rahman.jpg",
+  4: "Images for Leaders/Danny Boey.jpg",
+  5: "Images for Leaders/Steven Er.jpg",
+  6: "https://via.placeholder.com/300?text=Judy+Loh",
+  7: "Images for Leaders/Chee Wee Tan.jpg",
+  8: "Images for Leaders/Francis Tan.jpg",
+  9: "Images for Leaders/Vince Tan.jpg",
+  10: "Images for Leaders/Ajith Thadiyil Vidyadharan.jpg",
+  11: "Images for Leaders/Yung Yeow Wong.jpg",
+  12: "Images for Leaders/Hong Eng Yap.jpg",
+  13: "Images for Leaders/Hendra Setiawan.jpg",
+  14: "Images for Leaders/Ming Wen Yang.jpg",
+  15: "https://via.placeholder.com/300?text=Lawrence+Ong",
+  16: "Images for Leaders/Shaofeng Zhu.jpg"
 };
 
 const summaryContainer = document.getElementById("summary-container");
